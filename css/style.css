@@ -1,0 +1,28 @@
+@import url(./header.css);
+@import url(./colors.css);
+@import url(./main.css);
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+#root {
+  height: 100vh;
+  border: 1px solid red;
+  padding: 33px;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  background-image: url(../assets/26302.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+.bg_image {
+}
