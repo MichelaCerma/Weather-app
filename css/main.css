@@ -2,12 +2,11 @@ main {
   /* border: 1px solid red; */
   height: 100%;
 }
+/* all cards */
 .weath_card {
   position: relative;
   padding: 23px 21px 6%;
   height: fit-content;
-
-  border: 1px solid red;
   display: flex;
   gap: 29px;
   justify-content: space-between;
@@ -15,7 +14,7 @@ main {
 }
 .imgBg {
   width: 100%;
-  height: fit-content;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -43,9 +42,11 @@ main {
   font-size: 4.4rem;
 }
 .weath_img {
-  width: fit-content;
+  width: 100%;
   height: 100%;
-  /* border: 1px solid green; */
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid green;
 }
 .weath_desc {
   width: fit-content;
@@ -87,3 +88,93 @@ main {
   width: fit-content;
   height: 100%;
 }
+/* end all cards */
+
+/* single card */
+.single_weather {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  border: 1px solid red;
+}
+
+.city_container {
+  display: flex;
+  border: 1px solid blueviolet;
+  justify-content: space-between;
+}
+.single_weather_city {
+  height: fit-content;
+}
+
+.fa-solid.fa-location-dot {
+  border: 1px solid red;
+}
+.icon_container {
+  width: fit-content;
+  height: 170px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.single_weath_icon {
+  object-fit: contain;
+  width: 310px;
+  height: 350px;
+  object-position: center;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.single_weath_temp {
+  font-size: 8rem;
+  align-self: center;
+  font-weight: bold;
+}
+.single_weath_desc {
+}
+.container_min_max_fl {
+}
+.single_weath_minmax {
+}
+.single_weath_fl {
+}
+.container_parametr {
+}
+.parametr_wind {
+}
+.wind_top_container {
+}
+.wind_num {
+}
+.wind_bottom_container {
+}
+.wind_text {
+}
+.parametr_humidity {
+}
+.hum_top_container {
+}
+.hum_num {
+}
+.hum_bottom_container {
+}
+.hum_text {
+}
+.parametr_visibility {
+}
+.vis_top_container {
+}
+.vis_num {
+}
+.vis_bottom_container {
+}
+.vis_text {
+}
+
+/* end single card */

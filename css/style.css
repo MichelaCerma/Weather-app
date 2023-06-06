@@ -16,6 +16,7 @@
   padding: 33px;
   color: var(--color-text);
   display: flex;
+  scroll-behavior: auto;
   flex-direction: column;
   gap: 20px;
 
