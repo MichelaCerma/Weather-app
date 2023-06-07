@@ -26,6 +26,13 @@ export const genOption = (province) => {
 };
 
 export const genWeathCard = (pippo) => {
+  let par = pippo.name;
+
+  if (par.length >= 12) {
+    par = par.slice(11);
+    console.log(par);
+  }
+
   const WrapperCard = createEl("div", "", {
     name: "class",
     value: "weath_card",
@@ -36,7 +43,7 @@ export const genWeathCard = (pippo) => {
     "",
     {
       name: "src",
-      value: "./assets/Vector 1.png",
+      value: "./assets/Vector-prova.svg",
     },
     { name: "class", value: "imgBg" }
   );
@@ -55,11 +62,15 @@ export const genWeathCard = (pippo) => {
     value: "weath_temp",
   });
 
-  const desc = createEl("p", pippo.weather[0].description, {
+  const desc = createEl("p", `${pippo.weather[0].description} >`, {
     name: "class",
     value: "weath_desc",
   });
 
+  const imgContainer = createEl("div", "", {
+    name: "class",
+    value: "imgContainer",
+  });
   const img = createEl(
     "img",
     "",
@@ -86,7 +97,7 @@ export const genWeathCard = (pippo) => {
     value: "weath_bottom_text",
   });
 
-  const place = createEl("p", `${pippo.name},${pippo.sys.country} `, {
+  const place = createEl("p", `${par},${pippo.sys.country} `, {
     name: "class",
     value: "weath_place",
   });
@@ -94,14 +105,14 @@ export const genWeathCard = (pippo) => {
   const maxMin = createEl(
     "p",
     `
-  ${Math.round(pippo.main.temp_max)}° ~ ${Math.round(pippo.main.temp_min)}°,`,
+  ${Math.round(pippo.main.temp_max)}° ~ ${Math.round(pippo.main.temp_min)}°`,
     {
       name: "class",
       value: "weath_max_min",
     }
   );
-
-  topSide.append(topText, img);
+  imgContainer.appendChild(img);
+  topSide.append(topText, imgContainer);
   topText.append(temp, desc);
   bottomSide.appendChild(bottomText);
   bottomText.append(place, maxMin);
@@ -111,6 +122,11 @@ export const genWeathCard = (pippo) => {
 };
 
 export const genSingleWeath = (pina) => {
+  let par = pina.name;
+
+  if (par.length >= 12) {
+    par = par.slice(11);
+  }
   const container = createEl("div", "", {
     name: "class",
     value: "single_weather",
@@ -124,7 +140,7 @@ export const genSingleWeath = (pina) => {
     value: "icon_container",
   });
   const posIcon = createEl(
-    "img",
+    "i",
     "",
     {
       name: "src",
@@ -132,7 +148,7 @@ export const genSingleWeath = (pina) => {
     },
     { name: "class", value: "fa-solid fa-location-dot" }
   );
-  const city = createEl("p", `${pina.name},${pina.sys.country}`, {
+  const city = createEl("p", `${par},${pina.sys.country}`, {
     name: "class",
     value: "single_weather_city",
   });

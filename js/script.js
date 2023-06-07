@@ -2,16 +2,17 @@ import { createEl, genOption, genWeathCard, genSingleWeath } from "./fn.js";
 import { GET, weatherData } from "./http.js";
 
 //elements
+
 const provinces = [
-  "Province of Agrigento",
-  "Province of Caltanissetta",
+  "Agrigento",
+  "Caltanissetta",
   "Catania",
   "Enna",
   "Messina",
-  "Province of Palermo",
-  "Province of Ragusa",
+  "Palermo",
+  "Ragusa",
   "Syracuse",
-  "Province of Trapani",
+  "Trapani",
 ];
 
 const nav = document.querySelector("nav");
@@ -20,10 +21,10 @@ const Wrapper = createEl("div", "", { name: "class", value: "wrapper" });
 const select = createEl("select", "", { name: "name", value: "provinces" });
 const generalSelect = createEl(
   "option",
-  "dawdwd",
+  "Select your province",
   {
     name: "value",
-    value: "try",
+    value: "Select your province",
   },
   { name: "selected", value: "selected" }
 );
@@ -34,20 +35,20 @@ provinces.forEach((province) => {
   });
 });
 
+select.appendChild(generalSelect);
 provinces.forEach((province) => {
   select.append(genOption(province));
 });
 
-nav.appendChild(Wrapper);
-Wrapper.appendChild(select);
-select.appendChild(generalSelect);
+nav.appendChild(select);
 
 //eventi
 select.addEventListener("change", (e) => {
-  let prova = weatherData.find((item) => e.target.value == item.name);
-  if (!!prova) {
+  let filtData = weatherData.find((item) => item.name.includes(e.target.value));
+
+  if (!!filtData) {
     main.textContent = "";
-    main.append(genSingleWeath(prova));
+    main.append(genSingleWeath(filtData));
   } else {
     main.textContent = "";
     weatherData.forEach((data) => main.append(genWeathCard(data)));

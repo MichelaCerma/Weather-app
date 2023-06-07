@@ -1,6 +1,7 @@
 @import url(./header.css);
 @import url(./colors.css);
 @import url(./main.css);
+@import url(./single-card.css);
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap");
 
@@ -11,8 +12,8 @@
   font-family: "Nunito Sans", sans-serif;
 }
 #root {
-  height: 100vh;
-  border: 1px solid red;
+  height: 100%;
+
   padding: 33px;
   color: var(--color-text);
   display: flex;
@@ -22,8 +23,23 @@
 
   background-image: url(../assets/26302.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: fill;
   background-position: top center;
 }
 .bg_image {
+}
+
+@media all and (min-width: 1024px) {
+  #root {
+    height: 100%;
+    margin: 0 auto;
+    padding: 40px 20% 0;
+    background-size: cover;
+  }
+}
+
+@media all and (max-width: 1023px) and (min-width: 520px) {
+  #root {
+    padding: 0 20px;
+  }
 }
