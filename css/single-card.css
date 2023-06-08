@@ -8,13 +8,11 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid red;
 }
 
 .city_container {
   display: flex;
 
-  border: 1px solid blueviolet;
   justify-content: center;
   align-items: baseline;
 }
@@ -36,8 +34,8 @@
 }
 .single_weath_icon {
   object-fit: cover;
-  width: 310px;
-  height: 306px;
+  width: 290.4px;
+  height: 187px;
   object-position: center;
   filter: drop-shadow(2px 4px 6px black);
 }
@@ -67,60 +65,142 @@
   justify-content: center;
   align-items: center;
   gap: 13px;
+  padding-bottom: 10px;
 }
 .single_weath_minmax {
 }
 .single_weath_fl {
   font-size: 1rem;
 }
+
+/*----------- paramet ------------------ */
 .container_parametr {
   font-size: 1.3rem;
   width: 100%;
-  border: 1px solid red;
+
+  height: fit-content;
+  font-size: 0.5rem;
+  position: relative;
+
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  gap: 12px;
+}
+.paramethbg {
+  width: 100%;
+  filter: drop-shadow(0px 0px 1px rgb(138, 138, 138));
+
+  height: fit-content;
 }
 .parametr_wind {
-  width: 100px;
-  border: 1px solid black;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
 }
 .wind_top_container {
+  position: absolute;
+  top: 0;
+
   display: flex;
 }
-.wind_num {
+.wind .wind_num {
+}
+.wind_svg {
+  width: 50px;
+  height: 50px;
 }
 .wind_bottom_container {
+  position: absolute;
+  bottom: 0;
 }
 .wind_text {
 }
 .parametr_humidity {
-  width: 100px;
-  border: 1px solid greenyellow;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
 }
 .hum_top_container {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 0;
 }
 .hum_num {
+  padding: 6% 0 0 8%;
+  font-size: 2.8vw;
+  height: fit-content;
 }
 .hum_bottom_container {
+  padding: 0 0 5% 9%;
+  position: absolute;
+  bottom: 0;
 }
 .hum_text {
+  font-weight: 700;
+  font-size: 3vw;
+}
+.hum_image_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14vw;
+  padding-bottom: 7px;
+  height: 11.6vw;
+}
+.hum_svg {
+  width: 10.5vw;
+  height: 9.1vw;
 }
 .parametr_visibility {
-  width: 100px;
-  border: 1px solid brown;
+  position: relative;
+  height: fit-content;
+  width: fit-content;
 }
 .vis_top_container {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+}
+.vis_image_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14vw;
+  padding-bottom: 7px;
+  height: 11.6vw;
+  /* filter: drop-shadow(0px 0px 2px rgb(138, 138, 138)); */
+  filter: drop-shadow(0px 0px 2px rgb(67, 67, 67));
+}
+.vis_svg {
+  width: 13.5vw;
+  height: 15.1vw;
 }
 .vis_num {
+  padding: 6% 0 0 8%;
+  font-size: 2.8vw;
 }
 .vis_bottom_container {
+  padding: 0 0 5% 9%;
+
+  position: absolute;
+  bottom: 0;
 }
 .vis_text {
+  font-weight: 700;
+  font-size: 3vw;
 }
 
 /* end single card */
 
 /* desktop */
+/* 
 @media all and (max-width: 1024px) {
-}
+} */

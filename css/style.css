@@ -9,37 +9,43 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: var(--color-text);
   font-family: "Nunito Sans", sans-serif;
 }
 #root {
+  padding: 33px;
+  transition: all 0.35s;
+  display: flex;
   height: 100%;
 
-  padding: 33px;
-  color: var(--color-text);
-  display: flex;
-  scroll-behavior: auto;
   flex-direction: column;
   gap: 20px;
+  background-image: url(../assets/Sea\ of\ Clouds.png);
 
-  background-image: url(../assets/26302.jpg);
   background-repeat: no-repeat;
-  background-size: fill;
-  background-position: top center;
+  background-size: cover;
+  background-position: center center;
 }
 .bg_image {
 }
 
+/* arancione */
 @media all and (min-width: 1024px) {
   #root {
     height: 100%;
-    margin: 0 auto;
-    padding: 40px 20% 0;
-    background-size: cover;
+
+    padding: 40px 40px;
   }
 }
-
-@media all and (max-width: 1023px) and (min-width: 520px) {
+/* verde */
+@media all and (min-width: 520px) and (max-width: 1023px) {
   #root {
     padding: 0 20px;
+  }
+}
+/* blu schermo molto piccolo */
+@media all and (max-width: 350px) {
+  #root {
+    padding-top: 20px;
   }
 }

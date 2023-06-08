@@ -8,7 +8,7 @@ header {
 .title {
   text-transform: capitalize;
   font-weight: bold;
-  font-size: 1.8rem;
+  font-size: 7.8vw;
   color: var(--color-text);
 }
 nav {
@@ -28,6 +28,8 @@ select {
   border: 1px solid rgb(208, 208, 208);
   font-size: 1.2rem;
 }
+
+/* laptop */
 @media all and (min-width: 1024px) {
   .title {
     width: 100%;
@@ -40,27 +42,52 @@ select {
     width: 500px;
   }
 }
-
-@media all and (max-width: 1023px) {
+/* phone */
+@media all and (max-width: 519px) {
   .title {
+    align-self: start;
+  }
+  select {
     align-self: start;
   }
   nav {
     width: 100%;
   }
 }
+
+/* tablet */
 @media all and (max-width: 1023px) and (min-width: 520px) {
   .title {
+    margin-top: 26px;
     align-self: center;
+
+    font-size: 2rem;
   }
   nav {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
   }
   select {
-    background-color: red;
     margin: 0 auto;
     width: fit-content;
 
-    border: 1px solid red;
+    /* border: 1px solid red; */
+  }
+}
+
+/* smaller screens */
+@media all and (max-width: 350px) {
+  header {
+    padding-top: 5%;
+    gap: 0;
+  }
+  .title {
+    font-size: 6.7vw;
+    padding-bottom: 4%;
+  }
+  select {
+    font-size: 4vw;
+    padding: 2%;
+
+    height: fit-content;
   }
 }

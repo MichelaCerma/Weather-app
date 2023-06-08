@@ -30,7 +30,6 @@ export const genWeathCard = (pippo) => {
 
   if (par.length >= 12) {
     par = par.slice(11);
-    console.log(par);
   }
 
   const WrapperCard = createEl("div", "", {
@@ -200,6 +199,24 @@ export const genSingleWeath = (pina) => {
     value: "container_parametr",
   });
 
+  const windbg = createEl(
+    "img",
+    "",
+    { name: "src", value: "./assets/Vector-prova.svg" },
+    { name: "class", value: "paramethbg" }
+  );
+  const humbg = createEl(
+    "img",
+    "",
+    { name: "src", value: "./assets/Vector-prova.svg" },
+    { name: "class", value: "paramethbg" }
+  );
+  const visbg = createEl(
+    "img",
+    "",
+    { name: "src", value: "./assets/Vector-prova.svg" },
+    { name: "class", value: "paramethbg" }
+  );
   const windContainer = createEl("div", "", {
     name: "class",
     value: "parametr_wind",
@@ -209,17 +226,20 @@ export const genSingleWeath = (pina) => {
     name: "class",
     value: "wind_top_container",
   });
-  const windNum = createEl("p", `${Math.round(pina.wind.speed)}hm/h`, {
+  const windNum = createEl("p", `${Math.round(pina.wind.speed)} hm/h`, {
     name: "class",
     value: "wind_num",
   });
-
+  const windImgContainer = createEl("div", "", {
+    name: "class",
+    value: "wind_image_container",
+  });
   const windSvg = createEl(
     "img",
     "",
     {
       name: "src",
-      value: "",
+      value: "./assets/wind-prova.gif",
     },
     { name: "class", value: "wind_svg" }
   );
@@ -246,12 +266,16 @@ export const genSingleWeath = (pina) => {
     name: "class",
     value: "hum_num",
   });
+  const humImgContainer = createEl("div", "", {
+    name: "class",
+    value: "hum_image_container",
+  });
   const humSvg = createEl(
     "img",
     "",
     {
       name: "src",
-      value: "",
+      value: "./assets/wired-flat-447-water-drop.gif",
     },
     { name: "class", value: "hum_svg" }
   );
@@ -274,16 +298,21 @@ export const genSingleWeath = (pina) => {
     name: "class",
     value: "vis_top_container",
   });
-  const visNum = createEl("p", `${Math.round(pina.visibility / 1000)}km`, {
+  const visNum = createEl("p", `${Math.round(pina.visibility / 1000)} km`, {
     name: "class",
     value: "vis_num",
+  });
+
+  const visImgContainer = createEl("div", "", {
+    name: "class",
+    value: "vis_image_container",
   });
   const visSvg = createEl(
     "img",
     "",
     {
       name: "src",
-      value: "",
+      value: "./assets/wired-flat-69-eye-blue.gif",
     },
     { name: "class", value: "vis_svg" }
   );
@@ -297,15 +326,18 @@ export const genSingleWeath = (pina) => {
     value: "vis_text",
   });
 
-  windTop.append(windNum, windSvg);
+  windTop.append(windNum, windImgContainer);
   windBottom.appendChild(windText);
-  windContainer.append(windTop, windBottom);
-  humContainer.append(humTop, humBottom);
-  humTop.append(humNum, humSvg);
+  windImgContainer.appendChild(windSvg);
+  windContainer.append(windbg, windTop, windBottom);
+  humContainer.append(humbg, humTop, humBottom);
+  humTop.append(humNum, humImgContainer);
+  humImgContainer.appendChild(humSvg);
   humBottom.appendChild(humText);
   iconContainer.appendChild(weathIcon);
-  visContainer.append(visTop, visBottom);
-  visTop.append(visNum, visSvg);
+  visContainer.append(visbg, visTop, visBottom);
+  visTop.append(visNum, visImgContainer);
+  visImgContainer.appendChild(visSvg);
   visBottom.appendChild(visText);
   paraContainer.append(windContainer, humContainer, visContainer);
   containerminMaxFl.append(minMax, feelsLike);

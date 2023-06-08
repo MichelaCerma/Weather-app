@@ -17,7 +17,7 @@ const provinces = [
 
 const nav = document.querySelector("nav");
 const main = document.querySelector("main");
-const Wrapper = createEl("div", "", { name: "class", value: "wrapper" });
+
 const select = createEl("select", "", { name: "name", value: "provinces" });
 const generalSelect = createEl(
   "option",
@@ -36,6 +36,7 @@ provinces.forEach((province) => {
 });
 
 select.appendChild(generalSelect);
+
 provinces.forEach((province) => {
   select.append(genOption(province));
 });
