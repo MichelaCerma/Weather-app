@@ -1,0 +1,13 @@
+@keyframes updown {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(5px);
+  }
+}
+
+.animationUpDown {
+  animation: updown 1s linear infinite alternate;
+}

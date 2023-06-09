@@ -11,6 +11,9 @@ header {
   font-size: 7.8vw;
   color: var(--color-text);
 }
+.title.active {
+  color: #fff;
+}
 nav {
   width: fit-content;
   height: 100%;
@@ -27,6 +30,11 @@ select {
   box-shadow: 0px 7px 16px -11px black;
   border: 1px solid rgb(208, 208, 208);
   font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+select.active {
+  background-color: #fff;
+  color: var(--color-text-dark);
 }
 
 /* laptop */

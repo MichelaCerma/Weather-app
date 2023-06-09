@@ -2,6 +2,7 @@
 @import url(./colors.css);
 @import url(./main.css);
 @import url(./single-card.css);
+@import url(./animation.css);
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap");
 
@@ -9,7 +10,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: var(--color-text);
   font-family: "Nunito Sans", sans-serif;
 }
 #root {
@@ -17,16 +17,15 @@
   transition: all 0.35s;
   display: flex;
   height: 100%;
+  color: var(--color-text);
 
   flex-direction: column;
   gap: 20px;
   background-image: url(../assets/Sea\ of\ Clouds.png);
-
+  /* background-image: url(../assets/bg-nigth.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-}
-.bg_image {
 }
 
 /* arancione */
@@ -47,5 +46,6 @@
 @media all and (max-width: 350px) {
   #root {
     padding-top: 20px;
+    gap: 20px;
   }
 }

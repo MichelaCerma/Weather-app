@@ -1,3 +1,5 @@
+// import { toggle, root } from "./script.js";
+
 export const createEl = (el, text, ...attrs) => {
   const element = document.createElement(el);
   element.textContent = text;
@@ -25,8 +27,8 @@ export const genOption = (province) => {
   return option;
 };
 
-export const genWeathCard = (pippo) => {
-  let par = pippo.name;
+export const genWeathCard = (data) => {
+  let par = data.name;
 
   if (par.length >= 12) {
     par = par.slice(11);
@@ -34,7 +36,7 @@ export const genWeathCard = (pippo) => {
 
   const WrapperCard = createEl("div", "", {
     name: "class",
-    value: "weath_card",
+    value: "weath_card animationUpDown",
   });
 
   const imgBg = createEl(
@@ -56,12 +58,12 @@ export const genWeathCard = (pippo) => {
     value: "weath_top_text",
   });
 
-  const temp = createEl("p", `${Math.round(pippo.main.temp)}°`, {
+  const temp = createEl("p", `${Math.round(data.main.temp)}°`, {
     name: "class",
     value: "weath_temp",
   });
 
-  const desc = createEl("p", `${pippo.weather[0].description} >`, {
+  const desc = createEl("p", `${data.weather[0].description} >`, {
     name: "class",
     value: "weath_desc",
   });
@@ -75,7 +77,7 @@ export const genWeathCard = (pippo) => {
     "",
     {
       name: "src",
-      value: `https://openweathermap.org/img/wn/${pippo.weather[0].icon}@4x.png`,
+      value: `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`,
     },
     {
       name: "class",
@@ -96,7 +98,7 @@ export const genWeathCard = (pippo) => {
     value: "weath_bottom_text",
   });
 
-  const place = createEl("p", `${par},${pippo.sys.country} `, {
+  const place = createEl("p", `${par},${data.sys.country} `, {
     name: "class",
     value: "weath_place",
   });
@@ -104,7 +106,7 @@ export const genWeathCard = (pippo) => {
   const maxMin = createEl(
     "p",
     `
-  ${Math.round(pippo.main.temp_max)}° ~ ${Math.round(pippo.main.temp_min)}°`,
+  ${Math.round(data.main.temp_max)}° ~ ${Math.round(data.main.temp_min)}°`,
     {
       name: "class",
       value: "weath_max_min",
@@ -120,8 +122,8 @@ export const genWeathCard = (pippo) => {
   return WrapperCard;
 };
 
-export const genSingleWeath = (pina) => {
-  let par = pina.name;
+export const genSingleWeath = (data) => {
+  let par = data.name;
 
   if (par.length >= 12) {
     par = par.slice(11);
@@ -139,15 +141,15 @@ export const genSingleWeath = (pina) => {
     value: "icon_container",
   });
   const posIcon = createEl(
-    "i",
+    "img",
     "",
     {
       name: "src",
-      value: "",
+      value: "./assets/location.png",
     },
-    { name: "class", value: "fa-solid fa-location-dot" }
+    { name: "class", value: "location" }
   );
-  const city = createEl("p", `${par},${pina.sys.country}`, {
+  const city = createEl("p", `${par},${data.sys.country}`, {
     name: "class",
     value: "single_weather_city",
   });
@@ -157,19 +159,24 @@ export const genSingleWeath = (pina) => {
     "",
     {
       name: "src",
-      value: `https://openweathermap.org/img/wn/${pina.weather[0].icon}@4x.png`,
+      value: `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`,
     },
-    { name: "class", value: "single_weath_icon" }
+    { name: "class", value: "single_weath_icon animationUpDown" }
   );
   const tempWeathContainer = createEl("div", "", {
     name: "class",
     value: "temp_weath_Container",
   });
-  const temp = createEl("p", `${Math.round(pina.main.temp)}°`, {
+  const tempDegreesContainer = createEl("div", "", {
+    name: "class",
+    value: "temp_degrees_container",
+  });
+  const degrees = createEl("p", "°", { name: "class", value: "temp_degrees" });
+  const temp = createEl("p", `${Math.round(data.main.temp)}`, {
     name: "class",
     value: "single_weath_temp",
   });
-  const weath = createEl("p", pina.weather[0].main, {
+  const weath = createEl("p", data.weather[0].main, {
     name: "class",
     value: "single_weath_desc",
   });
@@ -182,12 +189,12 @@ export const genSingleWeath = (pina) => {
   const minMax = createEl(
     "span",
 
-    `${Math.round(pina.main.temp_max)}° /${Math.round(pina.main.temp_min)}°`,
+    `${Math.round(data.main.temp_max)}° /${Math.round(data.main.temp_min)}°`,
     { name: "class", value: "single_weath_minmax" }
   );
   const feelsLike = createEl(
     "span",
-    `Feels like ${Math.round(pina.main.feels_like)}°`,
+    `Feels like ${Math.round(data.main.feels_like)}°`,
     {
       name: "class",
       value: "single_weath_fl",
@@ -226,7 +233,7 @@ export const genSingleWeath = (pina) => {
     name: "class",
     value: "wind_top_container",
   });
-  const windNum = createEl("p", `${Math.round(pina.wind.speed)} hm/h`, {
+  const windNum = createEl("p", `${Math.round(data.wind.speed)} hm/h`, {
     name: "class",
     value: "wind_num",
   });
@@ -239,7 +246,7 @@ export const genSingleWeath = (pina) => {
     "",
     {
       name: "src",
-      value: "./assets/wind-prova.gif",
+      value: "./assets/wind.gif",
     },
     { name: "class", value: "wind_svg" }
   );
@@ -262,7 +269,7 @@ export const genSingleWeath = (pina) => {
     name: "class",
     value: "hum_top_container",
   });
-  const humNum = createEl("p", `${Math.round(pina.main.humidity)}%`, {
+  const humNum = createEl("p", `${Math.round(data.main.humidity)}%`, {
     name: "class",
     value: "hum_num",
   });
@@ -275,7 +282,7 @@ export const genSingleWeath = (pina) => {
     "",
     {
       name: "src",
-      value: "./assets/wired-flat-447-water-drop.gif",
+      value: "./assets/water-drop.gif",
     },
     { name: "class", value: "hum_svg" }
   );
@@ -298,7 +305,7 @@ export const genSingleWeath = (pina) => {
     name: "class",
     value: "vis_top_container",
   });
-  const visNum = createEl("p", `${Math.round(pina.visibility / 1000)} km`, {
+  const visNum = createEl("p", `${Math.round(data.visibility / 1000)} km`, {
     name: "class",
     value: "vis_num",
   });
@@ -312,7 +319,7 @@ export const genSingleWeath = (pina) => {
     "",
     {
       name: "src",
-      value: "./assets/wired-flat-69-eye-blue.gif",
+      value: "./assets/blue-eye.gif",
     },
     { name: "class", value: "vis_svg" }
   );
@@ -341,7 +348,8 @@ export const genSingleWeath = (pina) => {
   visBottom.appendChild(visText);
   paraContainer.append(windContainer, humContainer, visContainer);
   containerminMaxFl.append(minMax, feelsLike);
-  tempWeathContainer.append(temp, weath);
+  tempDegreesContainer.append(temp, degrees);
+  tempWeathContainer.append(tempDegreesContainer, weath);
   containerCity.append(posIcon, city);
   container.append(
     containerCity,

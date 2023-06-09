@@ -18,7 +18,10 @@ const provinces = [
 const nav = document.querySelector("nav");
 const main = document.querySelector("main");
 
-const select = createEl("select", "", { name: "name", value: "provinces" });
+export const select = createEl("select", "", {
+  name: "name",
+  value: "provinces",
+});
 const generalSelect = createEl(
   "option",
   "Select your province",
